@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Navigation } from "./components/sections/navigation";
 import SmoothScroll from "smooth-scroll";
 import { Form01 } from "./components/sections/form01";
+import Form1 from "./components/form1/index";
 import { Form02 } from "./components/sections/form02";
+import Form2 from "./components/form2/index";
 import { Form03 } from "./components/sections/form03";
 import { Form04 } from "./components/sections/form04";
 import { Form05 } from "./components/sections/form05";
@@ -26,7 +28,7 @@ const App = () => {
         <Navigation />
         <Switch>
           <Route path="/form01" exact>
-            <Form01 />
+            <Form1 />
           </Route>
           <Route path="/form02" exact>
             <Form02 />
