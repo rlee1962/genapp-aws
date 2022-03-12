@@ -2,8 +2,8 @@ import React from "react";
 import { useFieldArray } from "react-hook-form";
 import styled from "styled-components";
 
-const NestedVisible = ({ nestIndex, control, register, index }) => {
-  const { fields, remove } = useFieldArray({
+export default ({ nestIndex, control, register, index }) => {
+  const { fields, remove, append } = useFieldArray({
     control,
     name: "objectives",
   });
@@ -70,12 +70,19 @@ const NestedVisible = ({ nestIndex, control, register, index }) => {
         );
       })}
 
+      {/* <button
+        className="buttonPlus"
+        style={{ marginLeft: "0em", marginBottom: "2rem" }}
+        type="button"
+        onClick={() => append(["Text goes here"])}
+      >
+        Append Nested
+      </button> */}
+
       <hr />
     </div>
   );
 };
-
-export default NestedVisible;
 
 const CheckSpacer = styled.div`
   border-top: 0px inset #10101080;

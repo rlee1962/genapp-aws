@@ -2,7 +2,7 @@ import React from "react";
 import { useFieldArray } from "react-hook-form";
 import styled from "styled-components";
 
-const PostedArray = ({ postIndex, control, register }) => {
+export default ({ postIndex, control, register }) => {
   const { fields, remove, append } = useFieldArray({
     control,
     name: `objectives[${postIndex}].postControls`,
@@ -71,8 +71,6 @@ const PostedArray = ({ postIndex, control, register }) => {
     </div>
   );
 };
-
-export default PostedArray;
 
 const CheckSpacer = styled.div`
   border-top: 0px inset #10101080;

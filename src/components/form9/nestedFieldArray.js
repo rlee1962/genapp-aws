@@ -2,7 +2,7 @@ import React from "react";
 import { useFieldArray } from "react-hook-form";
 import styled from "styled-components";
 
-const NestedArray = ({ nestIndex, control, register }) => {
+export default ({ nestIndex, control, register }) => {
   const { fields, remove, append } = useFieldArray({
     control,
     name: `objectives[${nestIndex}].defaultActors`,
@@ -121,8 +121,6 @@ const NestedArray = ({ nestIndex, control, register }) => {
     </div>
   );
 };
-
-export default NestedArray;
 
 const CheckSpacer = styled.div`
   border-top: 0px inset #10101080;

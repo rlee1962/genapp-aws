@@ -1,5 +1,7 @@
 import React from "react";
 import { useStateMachine } from "little-state-machine";
+import { saveAs } from "@progress/kendo-file-saver";
+
 import updateAction from "./../common/updateAction";
 
 const Result = (props) => {
@@ -12,7 +14,13 @@ const Result = (props) => {
         "application/json" +
         JSON.stringify(state.smartWaypointState, null, "\t"),
     });
-    console.log(blob);
+
+    const slob =
+      "data:application/json," +
+      JSON.stringify(state.ase1Preflight, null, "\t");
+    saveAs(blob, "data.json");
+    console.log("Listening:", state.ase1Preflight);
+    console.log(slob);
   };
 
   return (

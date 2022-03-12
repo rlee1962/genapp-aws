@@ -1,18 +1,21 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useFieldArray } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import styled from "styled-components";
 import "./../styles/tailwind.css";
+import jsonStore from "./../common/jsonsStore";
 import updateAction from "./../common/updateAction";
+import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 
-const Step1 = () => {
+export default () => {
   const { state, action } = useStateMachine(updateAction);
-  const { handleSubmit, register, reset } = useForm({
+  const { handleSubmit, errors, control, register, reset } = useForm({
     defaultValues: state.delayObjective,
   });
 
   const history = useHistory();
+  const { push } = useHistory();
   const onSubmit = (data) => {
     action(data);
     history.push("/step2");
@@ -59,8 +62,6 @@ const Step1 = () => {
     </FormContainer>
   );
 };
-
-export default Step1;
 
 const FormContainer = styled.div`
   display: flex;

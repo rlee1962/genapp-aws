@@ -2,7 +2,7 @@ import React from "react";
 import { useFieldArray } from "react-hook-form";
 import styled from "styled-components";
 
-const NestedPostActorControls = ({ nestIndex, control, register }) => {
+export default ({ nestIndex, control, register }) => {
   const { fields, remove, append } = useFieldArray({
     control,
     name: `objectives[${nestIndex}].actorControls[${nestIndex}].postControls`,
@@ -83,8 +83,6 @@ const NestedPostActorControls = ({ nestIndex, control, register }) => {
     </div>
   );
 };
-
-export default NestedPostActorControls;
 
 const CheckSpacer = styled.div`
   border-top: 0px inset #10101080;

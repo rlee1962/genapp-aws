@@ -1,18 +1,21 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useFieldArray } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import styled from "styled-components";
 import "./../styles/tailwind.css";
+import jsonStore from "./../common/jsonsStore";
 import updateAction from "./../common/updateAction";
+import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 
-const Step1 = () => {
+export default () => {
   const { state, action } = useStateMachine(updateAction);
-  const { handleSubmit, register } = useForm({
+  const { handleSubmit, errors, control, register, reset } = useForm({
     defaultValues: state.eTD101Objective,
   });
 
   const history = useHistory();
+  const { push } = useHistory();
   const onSubmit = (data) => {
     action(data);
     history.push("/step2");
@@ -41,8 +44,6 @@ const Step1 = () => {
   );
 };
 
-export default Step1;
-
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -50,4 +51,9 @@ const FormContainer = styled.div`
   justify-content: flex-start;
   align-content: flex-start;
   align-items: flex-start;
+`;
+const CheckSpacer = styled.div`
+  border-top: 0px inset #10101080;
+  width: 100%;
+  margin: 2px 0;
 `;

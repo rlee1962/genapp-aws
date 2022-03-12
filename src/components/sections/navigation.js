@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useStateMachine } from "little-state-machine";
+import updateAction from "./../common/updateAction";
 import Dropdown from "./../Dropdown/Dropdown";
 
-export const Navigation = () => {
+export const Navigation = (props) => {
+  const { state, action } = useStateMachine(updateAction);
+
   const onClick = () => {
     window.STATE_MACHINE_RESET();
     window.location.reload();

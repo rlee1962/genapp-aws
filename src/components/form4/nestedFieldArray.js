@@ -1,7 +1,7 @@
 import React from "react";
 import { useFieldArray } from "react-hook-form";
 
-const NestedArray = ({ nestIndex, control, register }) => {
+export default ({ nestIndex, control, register }) => {
   const { fields, remove, append } = useFieldArray({
     control,
     name: `objectives[${nestIndex}].defaultActors`,
@@ -85,5 +85,3 @@ const NestedArray = ({ nestIndex, control, register }) => {
     </div>
   );
 };
-
-export default NestedArray;

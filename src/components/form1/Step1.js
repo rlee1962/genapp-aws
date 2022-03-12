@@ -4,10 +4,11 @@ import { useHistory } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import styled from "styled-components";
 import "./../styles/tailwind.css";
+import jsonStore from "./../common/jsonsStore";
 import updateAction from "./../common/updateAction";
 import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 
-const Step1 = () => {
+export default () => {
   const { state, action } = useStateMachine(updateAction);
   const { handleSubmit, control, register, reset } = useForm({
     defaultValues: state.ase1Preflight,
@@ -164,7 +165,19 @@ const Step1 = () => {
           className="resetButton"
           value="Reset Selection"
           onClick={() => {
-            reset(state);
+            reset(
+              {
+                control,
+              },
+              {
+                keepErrors: true,
+                keepDirty: false,
+                keepIsSubmitted: false,
+                keepTouched: false,
+                keepIsValid: false,
+                keepSubmitCount: false,
+              }
+            );
             window.STATE_MACHINE_RESET();
             window.location.reload();
           }}
@@ -173,8 +186,6 @@ const Step1 = () => {
     </FormContainer>
   );
 };
-
-export default Step1;
 
 const FormContainer = styled.div`
   display: flex;

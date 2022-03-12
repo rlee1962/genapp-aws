@@ -13,7 +13,6 @@ const Step1 = () => {
   });
 
   const history = useHistory();
-
   const onSubmit = (data) => {
     action(data);
     history.push("/step2");
@@ -50,8 +49,6 @@ const Step1 = () => {
   );
 };
 
-export default Step1;
-
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -60,3 +57,5 @@ const FormContainer = styled.div`
   align-content: flex-start;
   align-items: flex-start;
 `;
+
+export default Step1;

@@ -1,8 +1,8 @@
 import React from "react";
 import { useFieldArray } from "react-hook-form";
 
-const NestedSD = ({ nestIndex, control, register, index }) => {
-  const { fields, remove } = useFieldArray({
+export default ({ nestIndex, control, register, index }) => {
+  const { fields, remove, append } = useFieldArray({
     control,
     name: "objectives",
   });
@@ -33,9 +33,16 @@ const NestedSD = ({ nestIndex, control, register, index }) => {
         );
       })}
 
+      {/* <button
+        className="buttonPlus"
+        style={{ marginLeft: "0em", marginBottom: "2rem" }}
+        type="button"
+        onClick={() => append(["Text goes here"])}
+      >
+        Append Nested
+      </button> */}
+
       <hr />
     </div>
   );
 };
-
-export default NestedSD;

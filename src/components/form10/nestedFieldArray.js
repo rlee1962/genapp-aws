@@ -145,10 +145,10 @@ const NestedArray = ({ nestIndex, control, register }) => {
   );
 };
 
-export default NestedArray;
-
 const CheckSpacer = styled.div`
   border-top: 0px inset #10101080;
   width: 100%;
   margin: 2px 0;
 `;
+
+export default NestedArray;

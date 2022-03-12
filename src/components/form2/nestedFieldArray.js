@@ -1,7 +1,7 @@
 import React from "react";
 import { useFieldArray } from "react-hook-form";
 
-const NestedArray = ({ nestIndex, control, register }) => {
+export default ({ nestIndex, control, register }) => {
   const { fields, remove, append } = useFieldArray({
     control,
     name: `objectives[${nestIndex}].actors`,
@@ -42,7 +42,7 @@ const NestedArray = ({ nestIndex, control, register }) => {
         type="button"
         onClick={() =>
           append({
-            duration: 5,
+            duration: 5 
           })
         }
       >
@@ -53,5 +53,3 @@ const NestedArray = ({ nestIndex, control, register }) => {
     </div>
   );
 };
-
-export default NestedArray;

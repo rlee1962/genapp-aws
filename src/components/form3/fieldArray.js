@@ -2,6 +2,7 @@ import React from "react";
 import { useFieldArray } from "react-hook-form";
 import NestedArray from "./nestedFieldArray";
 import PostedArray from "./postFieldArray";
+import styled from "styled-components";
 import "./../styles/tailwind.css";
 import "./../styles/Custom.css";
 
@@ -117,3 +118,17 @@ export default function Fields({ control, register, setValue, getValues }) {
     </>
   );
 }
+
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+`;
+const CheckSpacer = styled.div`
+  border-top: 0px inset #10101080;
+  width: 100%;
+  margin: 2px 0;
+`;

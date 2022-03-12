@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useStateMachine } from "little-state-machine";
 import { saveAs } from "@progress/kendo-file-saver";
+import jsonStore from "./../common/jsonsStore";
 import updateAction from "./../common/updateAction";
 
-const Result = () => {
+const Result = (props) => {
   const { state } = useStateMachine(updateAction);
   console.log(state.ase1Preflight);
 
@@ -17,7 +18,7 @@ const Result = () => {
       "data:application/json," +
       JSON.stringify(state.ase1Preflight, null, "\t");
     saveAs(blob, "data.json");
-    console.log("Listening:", state.ase1Preflight, slob);
+    console.log("Listening:", state.ase1Preflight);
   };
 
   return (
